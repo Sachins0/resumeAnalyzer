@@ -12,11 +12,14 @@ async function processResume(req, res) {
         if (!url) {
             throw new AppError('PDF URL is required', StatusCodes.BAD_REQUEST);
         }
+        const alreadyPresentUrl = await Applicant.findOne({url});
+        if(alreadyPresentUrl){
+            throw new AppError('This url is already processed', StatusCodes.BAD_REQUEST);
+        }
         //extrct text
         const response = await fetch(url);
         const buffer = await response.arrayBuffer();
         const data = await pdf(buffer);
-        console.log("data", data);
 
         if (!data.text) {
             throw new AppError('No text content found in PDF', StatusCodes.INTERNAL_SERVER_ERROR);
@@ -27,18 +30,16 @@ async function processResume(req, res) {
         const encryptedData = {
             ...resumeData,
             name: encryptionService.encrypt(resumeData.name),
-            email: encryptionService.encrypt(resumeData.email)
+            email: encryptionService.encrypt(resumeData.email),
+            url: url
         };
 
-        console.log("encryptedData", encryptedData);
-
         // Save to database
-        const applicant = new Applicant(encryptedData);
-        await applicant.save();
+        const applicant = await Applicant.create(encryptedData);
   
         return res
                 .status(StatusCodes.OK)
-                .json({ success : true, message: 'Resume processed successfully' });
+                .json({ success : true, message: 'Resume processed successfully', data : applicant });
     } catch (error) {
         console.log("error at res con", error);
         return res
