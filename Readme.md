@@ -77,7 +77,7 @@ npm run dev
 - [API collection](./assets/resumeAnalyzer.postman_collection.json)
 
 - or use this Postman link
-- [Postman Link](https://www.postman.com/payload-geoscientist-97921483/workspace/myprojects/collection/32759854-dc5b19a7-a720-41f9-a9c3-86c63420cb14?action=share&creator=32759854&active-environment=32759854-ba73e635-9365-4646-b3ec-16326adea851)
+- [Postman Link](https://www.postman.com/payload-geoscientist-97921483/workspace/myprojects/request/32759854-15cb4bf1-2871-4d65-a591-c379a8027b0d?action=share&creator=32759854&ctx=documentation&active-environment=32759854-f9a21786-8b8f-41c5-b880-570279bcc48c)
 
 -- or use these endpoints
 
