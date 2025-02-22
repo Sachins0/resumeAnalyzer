@@ -75,3 +75,6 @@ npm run dev
 - download this file and import it in Postman
 
 - [API collection](./assets/resumeAnalyzer.postman_collection.json)
+
+- or use this Postman link
+- [Postman Link](https://www.postman.com/payload-geoscientist-97921483/workspace/myprojects/collection/32759854-dc5b19a7-a720-41f9-a9c3-86c63420cb14?action=share&creator=32759854&active-environment=32759854-ba73e635-9365-4646-b3ec-16326adea851)
