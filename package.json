@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon src/index.js"
+  "start": "node src/app.js",
+  "vercel-build": "npm install && npm run build",
+  "build": "echo 'Building...'"
   },
   "author": "",
   "license": "ISC",
