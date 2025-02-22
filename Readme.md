@@ -71,10 +71,47 @@ npm run dev
 
 - Backend will run at http://localhost:3000.
 
-## 📚 Postman API collection
+## 📚 Postman API collection and API Documentation
 - download this file and import it in Postman
 
 - [API collection](./assets/resumeAnalyzer.postman_collection.json)
 
 - or use this Postman link
 - [Postman Link](https://www.postman.com/payload-geoscientist-97921483/workspace/myprojects/collection/32759854-dc5b19a7-a720-41f9-a9c3-86c63420cb14?action=share&creator=32759854&active-environment=32759854-ba73e635-9365-4646-b3ec-16326adea851)
+
+-- or use these endpoints
+
+### Endpoints
+### 1. Info (for verifcation whether server is live or not)
+```bash
+curl --location 'https://localhost:3000/api/v1/info'
+```
+### 2. Authentication
+> POST /api/auth/login
+
+```bash
+curl --location 'https://localhost:3000/api/v1/auth/login' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'username=naval.ravikant' \
+--data-urlencode 'password=05111974'
+```
+
+### 3. Resume Enrichment
+> POST /api/resume/process
+
+```bash
+curl --location 'https://localhost:3000/api/v1/resume/process' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Bearer YOUR_JWT' \
+--data-urlencode 'url=https://www.dhli.in/uploaded_files/resumes/resume_3404.pdf'
+```
+
+### 4. Resume Search
+>POST /api/search/name
+
+```bash
+curl --location 'https://localhost:3000/api/v1/search/name' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Bearer YOUR_JWT' \
+--data-urlencode 'name=prabhat'
+```
